@@ -1,0 +1,32 @@
+
+.current{
+    padding: 10px 20px;
+    margin: 40px 0px 0px 40px;
+    color:#fff;
+    font-size:16px ;
+    font-weight: 100;
+    border: 2px solid rgb(160, 156, 156);
+    background-color: rgb(74, 70, 70);
+    opacity: 65%;
+    border-radius: 20px;
+    width: 20%;
+    border-style: ridge;
+    box-shadow: 0 4px 8px 10px rgba(0, 0, 0, 0.2), 0 6px 20px 10px rgba(0, 0, 0, 0.19);
+}
+
+#current-time{
+    font-size: 25px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+#current-date{
+padding-bottom: 10px;
+font-size: 25px;
+}
+
+@media only screen and (max-width:1053px){
+    .current{
+        font-size: 10px;
+    }
+}

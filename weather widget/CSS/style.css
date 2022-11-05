@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+
+body{
+    background:url('https://images2.alphacoders.com/238/thumb-1920-238870.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow:hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+span{
+    font-weight:bolder;
+    font-style:italic;
+}
+
+input{
+    width: 40%;
+    height: 40px;
+    border: 1px solid rgb(160, 156, 156);
+    border-radius: 5px;
+    background-color: rgb(74, 70, 70);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    font-size: 16px;
+    opacity: 90%;
+    box-shadow: 0 4px 8px 10px rgba(0, 0, 0, 0.2), 0 6px 20px 10px rgba(0, 0, 0, 0.19);
+
+}
+
+@media only screen and (max-width: 1053px) {
+   body{
+    overflow: visible;
+   }
+   img{
+    width: 30px;
+   }
+  }
+
