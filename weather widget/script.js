@@ -21,9 +21,13 @@ document.getElementById('forecast-sunday').innerHTML=daySeventh;
 
 
 async function fetWeather(locationCity) {
-
+    
     const API= `http://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=${locationCity}&days=7`;
-    const res = await fetch(API);
+    const res = await fetch(API,{
+       
+        headers:{"Access-Control-Allow-Origin":"*"}
+        
+    });
     const data = await res.json();
     console.log(data);
 
@@ -70,41 +74,121 @@ async function fetWeather(locationCity) {
     location.innerHTML = data.location.name+","+data.location.country;
     currentTemp.innerText = data.current.temp_c;
     currentHumidity.innerText=data.current.humidity;
-    currentIcon.src = data.current.condition.icon;
+    currentIcon.src = "https:" + data.current.condition.icon;
     currentPressure.innerText=data.current.pressure_mb;
     currentWindspeed.innerText=data.current.wind_kph;
 
-    forecastFirstIcon.src=data.forecast.forecastday[0].day.condition.icon;
+    forecastFirstIcon.src="https:" + data.forecast.forecastday[0].day.condition.icon;
     forecastFirstDay.innerHTML=data.forecast.forecastday[0].day.maxtemp_c;
     forecastFirstNight.innerHTML=data.forecast.forecastday[0].day.mintemp_c;
 
-    forecastSecondIcon.src=data.forecast.forecastday[1].day.condition.icon;
+    forecastSecondIcon.src="https:" + data.forecast.forecastday[1].day.condition.icon;
     forecastSecondDay.innerHTML=data.forecast.forecastday[1].day.maxtemp_c;
     forecastSecondNight.innerHTML=data.forecast.forecastday[1].day.mintemp_c;
 
-    forecastWednesdayIcon.src=data.forecast.forecastday[2].day.condition.icon;
+    forecastWednesdayIcon.src="https:" + data.forecast.forecastday[2].day.condition.icon;
     forecastWednesdayDay.innerHTML=data.forecast.forecastday[2].day.maxtemp_c;
     forecastWednesdayNight.innerHTML=data.forecast.forecastday[2].day.mintemp_c;
 
-    forecastThursdayIcon.src=data.forecast.forecastday[3].day.condition.icon;
+    forecastThursdayIcon.src="https:" + data.forecast.forecastday[3].day.condition.icon;
     forecastThursdayDay.innerHTML=data.forecast.forecastday[3].day.maxtemp_c;
     forecastThursdayNight.innerHTML=data.forecast.forecastday[3].day.mintemp_c;
 
-    forecastFridayIcon.src=data.forecast.forecastday[4].day.condition.icon;
+    forecastFridayIcon.src="https:" + data.forecast.forecastday[4].day.condition.icon;
     forecastFridayDay.innerHTML=data.forecast.forecastday[4].day.maxtemp_c;
     forecastFridayNight.innerHTML=data.forecast.forecastday[4].day.mintemp_c;
 
-    forecastSaturdayIcon.src=data.forecast.forecastday[5].day.condition.icon;
+    forecastSaturdayIcon.src="https:" + data.forecast.forecastday[5].day.condition.icon;
     forecastSaturdayDay.innerHTML=data.forecast.forecastday[5].day.maxtemp_c;
     forecastSaturdayNight.innerHTML=data.forecast.forecastday[5].day.mintemp_c;
 
-    forecastSundayIcon.src=data.forecast.forecastday[6].day.condition.icon;
+    forecastSundayIcon.src="https:" + data.forecast.forecastday[6].day.condition.icon;
     forecastSundayDay.innerHTML=data.forecast.forecastday[6].day.maxtemp_c;
     forecastSundayNight.innerHTML=data.forecast.forecastday[6].day.mintemp_c;
+
+    let forecastEventFirst= document.getElementById("forecast-monday")
+
+    forecastEventFirst.addEventListener("click",()=>{
+        currentTemp.innerText = data.current.temp_c;
+        currentHumidity.innerText=data.current.humidity;
+        currentIcon.src = "https:" + data.current.condition.icon;
+        currentPressure.innerText=data.current.pressure_mb;
+        currentWindspeed.innerText=data.current.wind_kph;
+        document.getElementById('current-date').innerHTML=dayFirst;
+    });
+
+
+    let forecastEventSecond = document.getElementById("forecast-tuesday")
+
+    forecastEventSecond.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[1].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[1].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[1].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=daySecond;
+    });
+
+    let forecastEventThird = document.getElementById("forecast-wednesday")
+
+    forecastEventThird.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[2].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[2].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[2].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=dayThird;
+    });
+
+    let forecastEventFourth = document.getElementById("forecast-thursday")
+
+    forecastEventFourth.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[3].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[3].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[3].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=dayFourth;
+    });
+
+    let forecastEventFifth= document.getElementById("forecast-friday")
+
+    forecastEventFifth.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[4].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[4].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[4].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=dayFifth;
+    });
+
+    let forecastEventSixth = document.getElementById("forecast-saturday")
+
+    forecastEventSixth.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[5].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[5].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[5].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=daySixth;
+    });
+
+    let forecastEventSeventh = document.getElementById("p")
+
+    forecastEventSeventh.addEventListener("click",()=>{
+        currentTemp.innerText = data.forecast.forecastday[6].day.avgtemp_c;
+        currentHumidity.innerText=data.forecast.forecastday[6].day.avghumidity;
+        currentWindspeed.innerText=data.forecast.forecastday[6].day.maxwind_kph;
+        document.getElementById('current-date').innerHTML=daySeventh;
+    });
 }
 
-const input = document.querySelector('input');
+
+const input = document.querySelector("input");
 
 input.addEventListener('input',()=>{
     fetWeather(input.value);
+})
+
+let forecastEventCoursor = document.getElementsByClassName('forecast-item');
+Array.from(forecastEventCoursor).forEach(function(forecastEventCoursor) {
+    forecastEventCoursor.addEventListener('mouseover', () =>{
+        forecastEventCoursor.style.borderColor = "rgb(160, 205, 71)";
+        forecastEventCoursor.style.cursor = "pointer"
+    });
+    forecastEventCoursor.addEventListener('mouseout',()=>{
+    forecastEventCoursor.style.borderColor = "rgb(159, 160, 156)";
+    })
+    
+
 })
